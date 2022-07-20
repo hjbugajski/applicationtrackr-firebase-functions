@@ -10,6 +10,8 @@ jobs:
   build:
     name: Build and Deploy
     runs-on: ubuntu-latest
+    env:
+      NODE_ENV: development
 
     steps:
       - uses: actions/checkout@v3
