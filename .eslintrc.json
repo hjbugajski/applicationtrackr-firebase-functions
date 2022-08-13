@@ -26,6 +26,7 @@
     "quotes": ["error", "single"],
     "import/no-unresolved": 0,
     "quote-props": ["error", "as-needed"],
-    "prettier/prettier": "error"
+    "prettier/prettier": "error",
+    "require-jsdoc": "off"
   }
 }
