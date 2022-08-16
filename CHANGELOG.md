@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v1.1.0...v2.0.0) (2022-08-16)
+
+### ⚠ BREAKING CHANGES
+
+- `batchDeleteApplications` is now `batchDelete`. Input parameters for `batchDelete`
+  have also changed.
+
+### Features
+
+- refactor batchDeleteApplications to batchDelete, update logic to be more generic ([6908cad](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/6908cad9fd2ad77efc23180210ddd21278417fef))
+
 ## [1.1.0](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v1.0.0...v1.1.0) (2022-08-13)
 
 ### Features

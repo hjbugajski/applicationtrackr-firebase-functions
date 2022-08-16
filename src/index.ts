@@ -3,14 +3,14 @@ import { CollectionReference, DocumentReference, getFirestore, Query } from 'fir
 import { https, runWith, logger } from 'firebase-functions';
 
 import { ReferenceTypes } from './enums/reference-types.enum';
-import { BatchDeleteApplicationsData } from './interfaces/batch-delete-applications-data.interface';
+import { BatchDeleteData } from './interfaces/batch-delete-data.interface';
 import { RecursiveDeleteData } from './interfaces/recursive-delete-data.interface';
 
 initializeApp();
 
 const firestore = getFirestore();
 
-async function batchDelete(query: Query, resolve: (value?: undefined) => void, reject: (error: string) => void) {
+async function _batchDelete(query: Query, resolve: (value?: undefined) => void, reject: (error: string) => void) {
   const snapshot = await query.get();
 
   if (snapshot.size === 0) {
@@ -35,30 +35,28 @@ async function batchDelete(query: Query, resolve: (value?: undefined) => void, r
     });
 
   process.nextTick(() => {
-    batchDelete(query, resolve, reject);
+    _batchDelete(query, resolve, reject);
   });
 }
 
-export const batchDeleteApplications = runWith({ timeoutSeconds: 540 }).https.onCall(
-  async (data: BatchDeleteApplicationsData, context) => {
-    if (!context || !context.auth) {
-      throw new https.HttpsError('unauthenticated', 'Request has invalid credentials.');
-    }
-
-    if (!data || !data.columnDocId || !data.path) {
-      throw new https.HttpsError('invalid-argument', 'Request has invalid data.');
-    }
-
-    const collection = firestore.collection(`users/${context.auth.uid}/${data.path}`);
-    const query = collection.where('columnDocId', '==', data.columnDocId).limit(500);
-
-    return new Promise((resolve, reject) => {
-      batchDelete(query, resolve, reject).catch(reject);
-    }).catch((error) => {
-      throw error;
-    });
+export const batchDelete = runWith({ timeoutSeconds: 540 }).https.onCall(async (data: BatchDeleteData, context) => {
+  if (!context || !context.auth) {
+    throw new https.HttpsError('unauthenticated', 'Request has invalid credentials.');
   }
-);
+
+  if (!data || !data.field || !data.value || !data.path) {
+    throw new https.HttpsError('invalid-argument', 'Request has invalid data.');
+  }
+
+  const collection = firestore.collection(`users/${context.auth.uid}/${data.path}`);
+  const query = collection.where(data.field, data.operator, data.value).limit(500);
+
+  return new Promise((resolve, reject) => {
+    _batchDelete(query, resolve, reject).catch(reject);
+  }).catch((error) => {
+    throw error;
+  });
+});
 
 export const recursiveDelete = runWith({ timeoutSeconds: 540 }).https.onCall(
   async (data: RecursiveDeleteData, context) => {
