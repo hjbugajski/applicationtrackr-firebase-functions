@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase-admin/app';
-import { CollectionReference, DocumentReference, getFirestore, Query } from 'firebase-admin/firestore';
+import { getFirestore, Query } from 'firebase-admin/firestore';
 import { https, runWith, logger } from 'firebase-functions';
 
 import { ReferenceTypes } from './enums/reference-types.enum';
@@ -44,12 +44,14 @@ export const batchDelete = runWith({ timeoutSeconds: 540 }).https.onCall(async (
     throw new https.HttpsError('unauthenticated', 'Request has invalid credentials.');
   }
 
-  if (!data || !data.field || !data.value || !data.path) {
+  if (!data || !data.field || !data.operator || !data.path || !data.value) {
     throw new https.HttpsError('invalid-argument', 'Request has invalid data.');
   }
 
   const collection = firestore.collection(`users/${context.auth.uid}/${data.path}`);
   const query = collection.where(data.field, data.operator, data.value).limit(500);
+
+  logger.info(`User ${context.auth.uid} has requested to delete documents from collection ${data.path}`);
 
   return new Promise((resolve, reject) => {
     _batchDelete(query, resolve, reject).catch(reject);
@@ -69,16 +71,9 @@ export const recursiveDelete = runWith({ timeoutSeconds: 540 }).https.onCall(
     }
 
     const path = `users/${context.auth.uid}/${data.path}`;
-    let ref: DocumentReference | CollectionReference;
+    const ref = data.refType === ReferenceTypes.Doc ? firestore.doc(path) : firestore.collection(path);
 
     logger.info(`User ${context.auth.uid} has requested to delete path ${path}`);
-
-    if (data.refType === ReferenceTypes.Doc) {
-      ref = firestore.doc(path);
-    } else {
-      // ReferenceTypes.Collection
-      ref = firestore.collection(path);
-    }
 
     return await firestore
       .recursiveDelete(ref)

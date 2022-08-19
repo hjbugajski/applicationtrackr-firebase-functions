@@ -1,6 +1,12 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+
+### [2.0.1](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v2.0.0...v2.0.1) (2022-08-19)
+
+### Bug Fixes
+
+- add logger to batchDelete and update logic ([d1c721d](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/d1c721d713220d99fbc4950b938776b04ac47ec4))
 
 ## [2.0.0](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v1.1.0...v2.0.0) (2022-08-16)
 
