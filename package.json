@@ -3,7 +3,7 @@
   "description": "ApplicationTrackr cloud functions for Firebase",
   "version": "2.0.2",
   "engines": {
-    "node": "18"
+    "node": "16"
   },
   "main": "lib/index.js",
   "private": true,
