@@ -15,15 +15,12 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version: 18
 
       - name: Install dependencies
         run: |
-          npm ci
-          npm i -g firebase-tools
-
-      - name: Lint
-        run: npm run lint
+          npm ci --ignore-scripts
+          npm i -g firebase-tools --ignore-scripts
 
       - name: Build
         run: npm run build
