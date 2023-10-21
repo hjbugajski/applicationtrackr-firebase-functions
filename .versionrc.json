@@ -1,6 +1,8 @@
 {
   "types": [
     { "type": "feat", "section": "Features" },
-    { "type": "fix", "section": "Bug Fixes" }
+    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "ci", "section": "CI/CD" },
+    { "type": "build", "section": "Build" }
   ]
 }
