@@ -1,9 +1,9 @@
 {
   "name": "applicationtrackr-firebase-functions",
-  "description": "Cloud Functions for Firebase",
-  "version": "2.0.1",
+  "description": "ApplicationTrackr cloud functions for Firebase",
+  "version": "2.0.2",
   "engines": {
-    "node": "16"
+    "node": "18"
   },
   "main": "lib/index.js",
   "private": true,
@@ -22,23 +22,23 @@
     "release:major": "commit-and-tag-version --release-as major"
   },
   "dependencies": {
-    "firebase-admin": "^11.10.1",
-    "firebase-functions": "^4.4.1",
-    "husky": "^8.0.3"
+    "firebase-admin": "^11.11.0",
+    "firebase-functions": "^4.4.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
-    "@typescript-eslint/eslint-plugin": "^6.7.0",
-    "@typescript-eslint/parser": "^6.7.0",
-    "commit-and-tag-version": "^11.2.3",
-    "eslint": "^8.49.0",
+    "@commitlint/cli": "^18.0.0",
+    "@commitlint/config-conventional": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
+    "commit-and-tag-version": "^11.3.0",
+    "eslint": "^8.52.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
     "firebase-functions-test": "^3.1.0",
-    "lint-staged": "^14.0.1",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.0.2",
     "prettier": "^3.0.3",
     "typescript": "^5.2.2"
   }
