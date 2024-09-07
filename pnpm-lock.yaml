@@ -12,8 +12,8 @@ importers:
         specifier: ^12.4.0
         version: 12.4.0
       firebase-functions:
-        specifier: ^4.4.1
-        version: 4.9.0(firebase-admin@12.4.0)
+        specifier: ^5.1.1
+        version: 5.1.1(firebase-admin@12.4.0)
     devDependencies:
       '@commitlint/cli':
         specifier: ^18.0.0
@@ -875,12 +875,12 @@ packages:
     resolution: {integrity: sha512-3HOHqJxNmFv0JgK3voyMQgmcibhJN4LQfZfhnZGb6pcONnZxejki4nQ1twsoJlGaIvgQWBtO7rc5mh/cqlOJNA==}
     engines: {node: '>=14'}
 
-  firebase-functions@4.9.0:
-    resolution: {integrity: sha512-IqxOEsVAWGcRv9KRGzWQR5mOFuNsil3vsfkRPPiaV1U/ATC27/jbahh4z8I4rW8Xqa6cQE5xqnw0ueyMH7i7Ag==}
+  firebase-functions@5.1.1:
+    resolution: {integrity: sha512-KkyKZE98Leg/C73oRyuUYox04PQeeBThdygMfeX+7t1cmKWYKa/ZieYa89U8GHgED+0mF7m7wfNZOfbURYxIKg==}
     engines: {node: '>=14.10.0'}
     hasBin: true
     peerDependencies:
-      firebase-admin: ^10.0.0 || ^11.0.0 || ^12.0.0
+      firebase-admin: ^11.10.0 || ^12.0.0
 
   flat-cache@4.0.1:
     resolution: {integrity: sha512-f7ccFPK3SXFHpx15UIGyRJ/FJQctuKZ0zVuN3frBo4HnK3cay9VEW0R6yPYFHC0AgqhukPzKjq22t5DmAyqGyw==}
@@ -3042,7 +3042,7 @@ snapshots:
       - encoding
       - supports-color
 
-  firebase-functions@4.9.0(firebase-admin@12.4.0):
+  firebase-functions@5.1.1(firebase-admin@12.4.0):
     dependencies:
       '@types/cors': 2.8.17
       '@types/express': 4.17.3
