@@ -1,4 +1,0 @@
-{
-  "**/*.{ts,js}": "eslint --ignore-path .gitignore",
-  "*": "prettier --write --ignore-unknown --ignore-path .gitignore"
-}
