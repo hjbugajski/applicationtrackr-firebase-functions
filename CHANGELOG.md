@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.4](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v3.0.3...v3.0.4) (2024-09-07)
+
+
+### Bug Fixes
+
+* remove import ([cccafd2](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/cccafd22e002511e6599ddfd3cda4ba014d805a6))
+
 ## [3.0.3](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v3.0.2...v3.0.3) (2024-09-07)
 
 
