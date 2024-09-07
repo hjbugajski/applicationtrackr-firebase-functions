@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.0](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v2.0.4...v3.0.0) (2024-09-07)
+
+
+### Features
+
+* update to second gen functions, drop typescript, update dev tools ([6a93eac](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/6a93eace79ad590ab3097895507fd77dcbf9a48e))
+
+
+### Build
+
+* **deps:** bump express from 4.18.2 to 4.19.2 ([db50ce3](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/db50ce3c55e2b88fa5d4ebe9f43e63559197d3f8))
+* **deps:** bump jose from 4.15.4 to 4.15.5 ([6d71c35](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/6d71c35714695c1291fd1c193b8b83209777d31b))
+
 ## [2.0.4](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v2.0.3...v2.0.4) (2023-10-21)
 
 ## [2.0.3](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v2.0.2...v2.0.3) (2023-10-21)
