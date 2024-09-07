@@ -32,6 +32,6 @@ jobs:
           pnpm install -g firebase-tools
 
       - name: Deploy
-        run: pnpm deploy
+        run: pnpm run deploy
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
