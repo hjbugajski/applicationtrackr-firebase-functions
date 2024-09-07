@@ -39,7 +39,7 @@ async function _batchDelete(query, resolve, reject) {
   });
 }
 
-export const batchDeleteV2 = onCall(async (data, context) => {
+export const batchDelete = onCall(async (data, context) => {
   if (!context || !context.auth) {
     throw new HttpsError('unauthenticated', 'Request has invalid credentials.');
   }
@@ -62,7 +62,7 @@ export const batchDeleteV2 = onCall(async (data, context) => {
   });
 });
 
-export const recursiveDeleteV2 = onCall(async (data, context) => {
+export const recursiveDelete = onCall(async (data, context) => {
   if (!context || !context.auth) {
     throw new HttpsError('unauthenticated', 'Request has invalid credentials.');
   }
