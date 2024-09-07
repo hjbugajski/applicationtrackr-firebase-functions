@@ -31,13 +31,7 @@ jobs:
           pnpm install
           pnpm install -g firebase-tools
 
-      - name: Authenticate Firebase
-        run: |
-          echo ${{ secrets.FIREBASE_SERVICE_ACCOUNT }} > ${HOME}/firebase-key.json
-          firebase functions:config:set --json < ${HOME}/firebase-key.json
-          firebase use --add
-        env:
-          GOOGLE_APPLICATION_CREDENTIALS: '${HOME}/firebase-key.json'
-
       - name: Deploy
         run: pnpm deploy
+        env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
