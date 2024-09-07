@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.1](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v3.0.0...v3.0.1) (2024-09-07)
+
+
+### Bug Fixes
+
+* convert to esm ([651a3e8](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/651a3e8013e9d26aacdd0ad47437fe403a1a3bdf))
+
+
+### CI/CD
+
+* update firebase auth ([1faab71](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/1faab71d1ab7ccb5db89e7930e226f141292f254))
+
 ## [3.0.0](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v2.0.4...v3.0.0) (2024-09-07)
 
 
