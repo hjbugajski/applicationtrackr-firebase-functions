@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.3](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v3.0.2...v3.0.3) (2024-09-07)
+
+
+### CI/CD
+
+* fix deploy script ([6f09827](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/6f09827f3c29fac5a5741957476d7f42cff01394))
+
 ## [3.0.2](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v3.0.1...v3.0.2) (2024-09-07)
 
 
