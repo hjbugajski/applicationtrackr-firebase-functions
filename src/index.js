@@ -1,9 +1,9 @@
-const { initializeApp } = require('firebase-admin/app');
-const { getFirestore } = require('firebase-admin/firestore');
-const { logger } = require('firebase-functions');
-const { setGlobalOptions } = require('firebase-functions/v2');
-const { onCall, HttpsError } = require('firebase-functions/v2/https');
-const { process } = require('process');
+import { initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
+import { logger } from 'firebase-functions';
+import { setGlobalOptions } from 'firebase-functions/v2';
+import { onCall, HttpsError } from 'firebase-functions/v2/https';
+import { process } from 'process';
 
 initializeApp();
 
@@ -40,7 +40,7 @@ async function _batchDelete(query, resolve, reject) {
   });
 }
 
-exports.batchDeleteV2 = onCall(async (data, context) => {
+export const batchDeleteV2 = onCall(async (data, context) => {
   if (!context || !context.auth) {
     throw new HttpsError('unauthenticated', 'Request has invalid credentials.');
   }
@@ -63,7 +63,7 @@ exports.batchDeleteV2 = onCall(async (data, context) => {
   });
 });
 
-exports.recursiveDeleteV2 = onCall(async (data, context) => {
+export const recursiveDeleteV2 = onCall(async (data, context) => {
   if (!context || !context.auth) {
     throw new HttpsError('unauthenticated', 'Request has invalid credentials.');
   }
