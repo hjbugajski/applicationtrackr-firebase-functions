@@ -72,3 +72,8 @@ lib/
 
 # TypeScript v1 declaration files
 typings/
+
+.DS_Store
+
+# admin sdk
+applicationtrackr-firebase-adminsdk-*.json
