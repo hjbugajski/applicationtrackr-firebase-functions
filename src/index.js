@@ -1,10 +1,7 @@
-import { initializeApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
 import { setGlobalOptions } from 'firebase-functions/v2';
 import { onCall, HttpsError } from 'firebase-functions/v2/https';
-
-initializeApp();
 
 const firestore = getFirestore();
 
@@ -90,4 +87,85 @@ export const recursiveDelete = onCall(async (req) => {
 
       throw error;
     });
+});
+
+async function _exportJobBoard(jobBoardDoc) {
+  const jobBoardData = jobBoardDoc.data();
+  const jobBoard = {
+    id: jobBoardDoc.id,
+    ...jobBoardData,
+    applications: [],
+    columns: []
+  };
+
+  const applicationsRef = jobBoardDoc.ref.collection('applications');
+  const applicationsSnapshot = await applicationsRef.get();
+
+  applicationsSnapshot.docs.forEach((doc) => {
+    jobBoard.applications.push({
+      id: doc.id,
+      ...doc.data()
+    });
+  });
+
+  const columnsRef = jobBoardDoc.ref.collection('columns');
+  const columnsSnapshot = await columnsRef.get();
+
+  columnsSnapshot.docs.forEach((doc) => {
+    jobBoard.columns.push({
+      id: doc.id,
+      ...doc.data()
+    });
+  });
+
+  return jobBoard;
+}
+
+export const bulkExport = onCall(async (req) => {
+  if (!req || !req.auth) {
+    throw new HttpsError('unauthenticated', 'Request has invalid credentials.');
+  }
+
+  const { auth } = req;
+  const userPath = `users/${auth.uid}`;
+
+  logger.info(`User ${auth.uid} has requested to export all their data`);
+
+  try {
+    const userDocRef = firestore.doc(userPath);
+    const userDoc = await userDocRef.get();
+
+    const exportData = {
+      metadata: {
+        exportDate: new Date().toISOString(),
+        userId: auth.uid,
+        version: '1.0.0'
+      },
+      data: {
+        profile: null,
+        jobBoards: []
+      }
+    };
+
+    if (userDoc.exists) {
+      exportData.data.profile = userDoc.data();
+    }
+
+    const jobBoardsRef = firestore.collection(`${userPath}/jobBoards`);
+    const jobBoardsSnapshot = await jobBoardsRef.get();
+
+    logger.info(`Found ${jobBoardsSnapshot.size} job boards for user ${auth.uid}`);
+
+    for (const jobBoardDoc of jobBoardsSnapshot.docs) {
+      const jobBoard = await _exportJobBoard(jobBoardDoc);
+      exportData.data.jobBoards.push(jobBoard);
+    }
+
+    logger.info(`Successfully exported data for user ${auth.uid}. Job boards: ${exportData.data.jobBoards.length}`);
+
+    return exportData;
+  } catch (error) {
+    logger.error(`Error exporting data for user ${auth.uid}:`, error);
+    throw new HttpsError('internal', 'Failed to export user data.');
+  }
 });
