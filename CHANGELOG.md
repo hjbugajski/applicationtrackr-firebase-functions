@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.2.1](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v3.1.0...v3.2.1) (2025-06-08)
+
+
+### Features
+
+* add bulk export ([#35](https://github.com/hjbugajski/applicationtrackr-firebase-functions/issues/35)) ([3526cf6](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/3526cf6ea0215eeb5bc284e7ffebc11413220fc2))
+
+
+### Bug Fixes
+
+* add initialize ([2fa6567](https://github.com/hjbugajski/applicationtrackr-firebase-functions/commit/2fa6567af48f2e57ebd079b34d7719fc41a69be3))
+
 ## [3.2.0](https://github.com/hjbugajski/applicationtrackr-firebase-functions/compare/v3.1.0...v3.2.0) (2025-06-08)
 
 
