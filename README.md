@@ -1,8 +1,7 @@
 # ApplicationTrackr Firebase Functions
 
-## ⚠️ Archive Notice
-
-This project has been archived as of September 2025 and is no longer actively maintained.
+> [!WARNING]
+> This project has been archived as of September 2025 and is no longer actively maintained.
 
 ApplicationTrackr Firebase Functions provides cloud functions for the ApplicationTrackr job application tracking platform. Built with Firebase Functions and Node.js, this repository contains backend services for data management operations.
 
